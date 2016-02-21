@@ -35,7 +35,10 @@ Note ID: [note_id]
 By Author [author]
 =end
     def list
-
+      puts "There are no notes." if note_list.empty?
+      note_list.each do |note_id, value|
+        puts "Note ID: #{note_id} \n #{value["note"]}\n\n\n By Author #{value["author"]}\n\n"
+      end
     end
 =begin
 get(note_id) - This function takes a note_id which refers to the index of the note in
@@ -80,3 +83,4 @@ puts writer.author
 writer.create("food","I love food")
 writer.create("code","I love code")
 puts writer.note_list
+puts writer.list
