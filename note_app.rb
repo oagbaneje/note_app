@@ -84,8 +84,10 @@ edit(note_id, new_content) - This function replaces the content in the note at
 note_id with new_content
 =end
     def edit(note_id, new_content)
-
-
+      note = note_list[note_id]
+      note.each_key do |key|
+        note[key] = new_content if key == "note"
+      end
     end
   end
 end
