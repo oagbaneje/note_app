@@ -45,6 +45,11 @@ get(note_id) - This function takes a note_id which refers to the index of the no
 the notes list and returns the content of that note as a string.
 =end
     def get(note_id)
+      puts "Getting Note..."
+      note = note_list[note_id]
+      note.each do |key, value|
+          return value if key == "note"
+      end
 
     end
 =begin
@@ -84,3 +89,4 @@ writer.create("food","I love food")
 writer.create("code","I love code")
 puts writer.note_list
 puts writer.list
+puts writer.get("food")
