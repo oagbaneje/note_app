@@ -21,7 +21,7 @@ create(note_content) - This function takes the note content as the parameter and
 adds it to the notes list of the object.
 =end
     def create(note_index,note_content)
-
+      note_list[note_index] = {"note"=> note_content, "author"=> @author}
     end
 =begin
 list() - This function lists out each of the notes in the notes list in the following format.
@@ -77,3 +77,6 @@ end
 
 writer = Document::NotesApplication.new("Obiamaka")
 puts writer.author
+writer.create("food","I love food")
+writer.create("code","I love code")
+puts writer.note_list
