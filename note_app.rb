@@ -77,7 +77,7 @@ By Author [author]
 delete(note_id) - This function deletes the note at the index note_id of the notes list.
 =end
     def delete(note_id)
-
+      note_list.delete(note_id)
     end
 =begin
 edit(note_id, new_content) - This function replaces the content in the note at
@@ -98,3 +98,5 @@ puts writer.note_list
 puts writer.list
 puts writer.get("food")
 writer.search("garri")
+writer.delete("food")
+writer.list
