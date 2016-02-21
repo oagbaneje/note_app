@@ -63,8 +63,15 @@ Note ID: [note_id]
 By Author [author]
 =end
     def search(search_text)
-
-
+      puts "Showing results for search " + search_text
+      downcase_search = search_text.downcase
+      note_list.each do |key, value|
+        downcase_note = note_list[key]["note"].downcase
+        if downcase_note.include?(downcase_search)
+          puts "Note ID: #{key} \n #{value["note"]}\n\n\n By Author #{value["author"]}\n\n"
+        end
+      end
+      puts "File not found!"
     end
 =begin
 delete(note_id) - This function deletes the note at the index note_id of the notes list.
@@ -90,3 +97,4 @@ writer.create("code","I love code")
 puts writer.note_list
 puts writer.list
 puts writer.get("food")
+writer.search("garri")
