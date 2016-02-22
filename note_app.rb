@@ -48,6 +48,7 @@ module Document
       when "7" then quit
       else
         puts "This option does not exist, check options again"
+        options
       end
     end
 
@@ -61,6 +62,7 @@ adds it to the notes list of the object.
       puts "Type in the note contents"
       note_content = gets.chomp
       note_list[note_index] = {"note"=> note_content, "author"=> author}
+      options
     end
 =begin
 list() - This function lists out each of the notes in the notes list in the following format.
@@ -120,6 +122,7 @@ By Author [author]
           return "Note not found!"
         end
       end
+      options
     end
 =begin
 delete(note_id) - This function deletes the note at the index note_id of the notes list.
@@ -132,6 +135,7 @@ delete(note_id) - This function deletes the note at the index note_id of the not
       else
         "This Note does not exist!"
       end
+      options
     end
 =begin
 edit(note_id, new_content) - This function replaces the content in the note at
@@ -145,10 +149,17 @@ note_id with new_content
       else
         "This Note does not exist!"
       end
+      options
     end
 
     def quit
-
+      puts "Are you sure you want to quit y/n"
+      answer = gets.chomp
+      if answer == "y" || answer =="Y"
+        return
+      elsif answer =="n" || answer== "N"
+        options
+      end
     end
   end
 end
